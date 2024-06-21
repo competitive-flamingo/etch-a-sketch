@@ -8,7 +8,7 @@ body {
     height: 100vh;
     font-family: Verdana, Tahoma, sans-serif;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -30,4 +30,20 @@ body {
 
 .row-div > * {
     flex-grow: 1;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.buttons > * {
+    padding: 20px;
+}
+
+.squares-button {
+    border: 1px solid black;
 }

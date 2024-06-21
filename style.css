@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    font-family: Verdana, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 800px;
+    height: 800px;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+}
+
+.container > * {
+    flex-grow: 1;
+}
+
+.row-div {
+    display: flex;
+}
+
+.row-div > * {
+    flex-grow: 1;
+}

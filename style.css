@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -6,16 +7,18 @@
 
 body {
     height: 100vh;
-    font-family: Verdana, Tahoma, sans-serif;
+    font-family: Roboto, Verdana, Tahoma, sans-serif;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
+    background-color: #222831;
+    flex-wrap: wrap;
 }
 
 .container {
+    margin: 20px;
     width: 800px;
     height: 800px;
-    /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
 }
@@ -33,13 +36,15 @@ body {
 }
 
 .buttons {
-    width: 400px;
-    border: 1px solid black;
+    margin: 20px;
+    width: 210px;
+    border: 3px solid #76ABAE77;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     flex-wrap: wrap;
-    /* align-items: center; */
+    background-color: #31363F;
 }
 
 
@@ -48,9 +53,74 @@ body {
 }
 
 .squares-button {
-    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
+.squares-button span, .squares-button label {
+    font-size: 18px;
+    color: #EEEEEE;
+}
+
+#points {
+    accent-color: #76ABAE;
+}
+
+.radio-field input, #eraser, #borders{
+    accent-color: #76ABAE;
+    width: 16px;
+    height: 16px;
+}
+
+
+.squares-button span {
+    font-weight: bold;
+}
+
+
 .color-options {
-    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.color-options  > .header{
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #EEEEEE;
+}
+
+.color-options > .radio-field {
+    margin-left: 10px;
+    margin-bottom: 5px;
+    display: flex;
+    gap: 10px;
+    font-size: 18px;
+    flex-wrap: wrap;
+    color: #EEEEEE;
+}
+
+
+.eraser-button, .borders-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    color: #EEEEEE;
+}
+
+
+.reset-button button {
+    padding: 10px 30px;
+    border-radius: 10px;
+    border: 2px solid #76ABAE77;
+    font-weight: bold;
+    font-size: 16px;
+    color: #EEEEEE;
+    background-color: transparent;
+    cursor: pointer;
 }

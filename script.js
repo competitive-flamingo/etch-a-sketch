@@ -7,18 +7,11 @@ const bordersButton = document.querySelector("#borders");
 const resetButton = document.querySelector(".reset-button button");
 const number_of_squares = 16;
 let containerSquares = document.querySelectorAll(".container .column-div");
-container.addEventListener("mouseover", colorSquare);
-// container.addEventListener("mouseout", toggleSquareBackgroundColor);
-gridSizeInput.addEventListener("input", changeGridSizeSpanValue);
-gridSizeInput.addEventListener("change", changeGridSize);
-bordersButton.addEventListener("change", toggleGridBorders);
-eraserButton.addEventListener("change", toggleEraserButton);
-resetButton.addEventListener("click", reset);
-
+let isDragging = false;
 
 function generateGrid(squares = number_of_squares) {
     gridSizeInput.value = squares;
-    gridSizeValueSpan.textContent = squares;
+    gridSizeValueSpan.textContent = `${squares}      x      ${squares}`;
     for(let i = 0 ; i < squares ; i++) {
         const rowDiv = document.createElement("div");
         rowDiv.classList.add("row-div");
@@ -29,12 +22,12 @@ function generateGrid(squares = number_of_squares) {
             columnDiv.setAttribute("green", 0);
             columnDiv.setAttribute("blue", 0);
             columnDiv.setAttribute("opacity", 0);
-            columnDiv.style.border = bordersButton.checked ? "1px solid black" : "0px";
+            columnDiv.style.border = bordersButton.checked ? "1px solid #EEEEEE22" : "0px";
             rowDiv.appendChild(columnDiv);
         }
         container.appendChild(rowDiv);
     }
-    container.style.border = bordersButton.checked ? "0px" : "1px solid black";
+    container.style.border = bordersButton.checked ? "0px" : "1px solid #76ABAE77";
     containerSquares = document.querySelectorAll(".container .column-div");
 }
 
@@ -64,7 +57,7 @@ function preventDragDrop() {
 
 function changeGridSizeSpanValue(event) {
     const inputVal = event.target.value;
-    gridSizeValueSpan.textContent = inputVal;
+    gridSizeValueSpan.textContent = `${inputVal}X${inputVal}`;
 }
 
 function removePreviousGrid() {
@@ -121,12 +114,6 @@ function colorSquare(event) {
             }
         }
         if(eraserButton.checked) {
-            // target.setAttribute("red", 0);
-            // target.setAttribute("green", 0);
-            // target.setAttribute("blue", 0);
-            // target.setAttribute("opacity", 0);
-            // target.setAttribute("darkenValue", 0.1);
-            // target.style.backgroundColor = "rgba(0, 0, 0, 0)";
             resetSquare(target);
         }
     }
@@ -150,9 +137,9 @@ function getRandomOpacity() {
 }
 
 function toggleGridBorders() {
-    container.style.border = bordersButton.checked ? "0px" : "1px solid black";
+    container.style.border = bordersButton.checked ? "0px" : "1px solid #76ABAE77";
     for(const square of containerSquares) {
-        square.style.border = bordersButton.checked ? "1px solid black" : "0px";
+        square.style.border = bordersButton.checked ? "1px solid #EEEEEE22" : "0px";
     }
 }
 
@@ -174,5 +161,25 @@ function reset(event) {
     toggleEraserButton();
 }
 
+function initEventListeners() {
+    container.addEventListener("mousedown", (event) => {
+        isDragging = true;
+        colorSquare(event);
+    });
+    container.addEventListener("mouseover", (event) => {
+        if(isDragging){
+            colorSquare(event);
+        }
+    })
+    document.addEventListener("mouseup", () => {
+        isDragging = false;
+    })
+    gridSizeInput.addEventListener("input", changeGridSize);
+    bordersButton.addEventListener("change", toggleGridBorders);
+    eraserButton.addEventListener("change", toggleEraserButton);
+    resetButton.addEventListener("click", reset);
+    preventDragDrop();
+}
+
+initEventListeners();
 generateGrid();
-preventDragDrop();

@@ -12,6 +12,31 @@
             <label for="points">Grid Size: <span class="grid-size-value"></span></label>
             <input type="range" id="points" name="points" min="1" max="100" step="1">
         </div>
+        <div class="color-options">
+            <div class="radio-field">
+                <input type="radio" name="option" value="black" id="black" checked>
+                <label for="black">Black</label>
+            </div>
+            <div class="radio-field">
+                <input type="radio" name="option" value="colored" id="colored">
+                <label for="colored">Colored</label>
+            </div>
+            <div class="radio-field">
+                <input type="radio" name="option" value="darken" id="darken">
+                <label for="darken">Darkening</label>
+            </div>
+        </div>
+        <div class="eraser-button">
+            <input type="checkbox" name="eraser" value="eraser" id="eraser">
+            <label for="eraser">Eraser</label>
+        </div>
+        <div class="borders-button">
+            <input type="checkbox" name="borders" value="borders" id="borders" checked>
+            <label for="borders">Borders</label>
+        </div>
+        <div class="reset-button">
+            <button>Reset</button>
+        </div>
     </div>
     <div class="container"></div>
     <script src="./script.js"></script>

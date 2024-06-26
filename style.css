@@ -33,10 +33,13 @@ body {
 }
 
 .buttons {
+    width: 400px;
+    border: 1px solid black;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    flex-wrap: wrap;
+    /* align-items: center; */
 }
 
 
@@ -45,5 +48,9 @@ body {
 }
 
 .squares-button {
-    border: 1px solid black;
+    /* border: 1px solid black; */
+}
+
+.color-options {
+    /* border: 1px solid black; */
 }
